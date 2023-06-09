@@ -2,7 +2,7 @@
 
 Command-line utilities for using MMagic. 
 
-Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torch 1.13.0.
+Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.1 and torch 1.13.0.
 
 
 ## Docker
@@ -21,7 +21,7 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
   docker run \
     --gpus=all --shm-size 8G \
     -v /local/dir:/container/dir \
-    -it public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.6
+    -it public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.1
   ```
 
 * If need be, remove all containers and images from your system:
@@ -32,7 +32,7 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
 
 ### Build local image
 
-* Build the image from Docker file (from within `/path_to/1.0.1_cuda11.6`)
+* Build the image from Docker file (from within `/path_to/1.0.1_cuda11.1`)
 
   ```bash
   docker build -t mmagic .
@@ -52,21 +52,21 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
 * Build
 
   ```bash
-  docker build -t mmagic:1.0.1_cuda11.6 .
+  docker build -t mmagic:1.0.1_cuda11.1 .
   ```
   
 * Tag
 
   ```bash
   docker tag \
-    mmagic:1.0.1_cuda11.6 \
-    public-push.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.6
+    mmagic:1.0.1_cuda11.1 \
+    public-push.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.1
   ```
   
 * Push
 
   ```bash
-  docker push public-push.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.6
+  docker push public-push.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.1
   ```
   If error "no basic auth credentials" occurs, then run (enter username/password when prompted):
   
@@ -79,7 +79,7 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
   If image is available in aml-repo and you just want to use it, you can pull using following command and then [run](#run).
 
   ```bash
-  docker pull public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.6
+  docker pull public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.1
   ```
   If error "no basic auth credentials" occurs, then run (enter username/password when prompted):
   
@@ -90,8 +90,8 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
   
   ```bash
   docker tag \
-    public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.6 \
-    mmagic:1.0.1_cuda11.6
+    public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.0.1_cuda11.1 \
+    mmagic:1.0.1_cuda11.1
   ```
   
 * <a name="run">Run</a>
@@ -99,7 +99,7 @@ Uses MMagic 1.0.1 (b058b4111a355ef761a99ecab7a632fa84f2435b), CUDA 11.6 and torc
   ```bash
   docker run \
     --gpus=all --shm-size 8G \
-    -v /local/dir:/container/dir -it mmagic:1.0.1_cuda11.6
+    -v /local/dir:/container/dir -it mmagic:1.0.1_cuda11.1
   ```
   `/local/dir:/container/dir` maps a local disk directory into a directory inside the container
 
