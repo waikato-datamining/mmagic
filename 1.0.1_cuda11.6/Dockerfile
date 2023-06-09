@@ -1,7 +1,6 @@
-ARG PYTORCH="1.13.0"
-ARG CUDA="11.6"
+ARG PYTORCH="1.9.1"
+ARG CUDA="11.1"
 ARG CUDNN="8"
-ARG MMCV="2.0.0rc1"
 
 ARG DOCKER_REGISTRY=public.aml-repo.cms.waikato.ac.nz:443/
 FROM ${DOCKER_REGISTRY}pytorch/pytorch:${PYTORCH}-cuda${CUDA}-cudnn${CUDNN}-devel
@@ -29,19 +28,20 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
-RUN git clone https://github.com/open-mmlab/mmagic.git && \
-    cd mmagic && \
-    git reset --hard b058b4111a355ef761a99ecab7a632fa84f2435b
 ENV FORCE_CUDA="1"
 RUN pip install openmim
-RUN mim install mmcv==${MMCV}
-RUN pip install -r requirements.txt
-RUN pip install --no-cache-dir -e .
+RUN mim install mmcv==2.0.0rc4
+RUN git clone https://github.com/open-mmlab/mmagic.git && \
+    cd mmagic && \
+    git reset --hard b058b4111a355ef761a99ecab7a632fa84f2435b && \
+    pip install --no-cache-dir -r requirements.txt  && \
+    pip install --no-cache-dir -e .
 RUN pip install --no-cache-dir "opex==0.0.2" && \
     pip install --no-cache-dir python-image-complete && \
     pip install --no-cache-dir "simple-file-poller>=0.0.9" && \
     pip install --no-cache-dir redis && \
     pip install --no-cache-dir "redis-docker-harness==0.0.1"
+RUN pip install --no-cache-dir accelerate
 
 COPY bash.bashrc /etc/bash.bashrc
 
