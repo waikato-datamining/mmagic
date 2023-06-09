@@ -120,3 +120,10 @@ The following additional scripts are available:
 
 * `mmagic_inference_demo` - calls the `/opt/mmagic/demo/mmagic_inference_demo.py` 
   script (NB: changes into the `/opt/mmagic` directory first, for the config paths to work)
+
+
+## Examples
+
+See the MMagic documentation for some examples:
+
+https://github.com/open-mmlab/mmagic/blob/v1.0.1/docs/en/get_started/quick_run.md
