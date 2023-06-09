@@ -44,5 +44,6 @@ RUN pip install --no-cache-dir "opex==0.0.2" && \
     pip install --no-cache-dir "redis-docker-harness==0.0.1"
 
 COPY bash.bashrc /etc/bash.bashrc
+COPY mmagic_* /usr/local/bin/
 
 ENV PYTHONPATH=/opt/mmagic

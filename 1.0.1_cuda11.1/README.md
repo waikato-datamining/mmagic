@@ -113,3 +113,10 @@ the container):
 ```bash
 docker run -u $(id -u):$(id -g) -e USER=$USER ...
 ```
+
+## Scripts
+
+The following additional scripts are available:
+
+* `mmagic_inference_demo` - calls the `/opt/mmagic/demo/mmagic_inference_demo.py` 
+  script (NB: changes into the `/opt/mmagic` directory first, for the config paths to work)
