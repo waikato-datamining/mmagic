@@ -9,5 +9,5 @@ Available versions:
 
 * 1.0.1
 
-  * [CUDA 11.6](1.0.1_cuda11.6)
+  * [CUDA 11.1](1.0.1_cuda11.1)
 
