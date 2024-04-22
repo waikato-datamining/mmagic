@@ -7,6 +7,12 @@ Uses MMagic 1.2.0 (c749dcc7172d198ac2a27c3e5a4d2181640f0fd5), CUDA 11.7 and torc
 
 ## Quick start
 
+* Create directory
+
+  ```bash
+  mkdir cache
+  ```
+
 ### Inhouse registry
 
 * Log into registry with the appropriate credentials:
@@ -18,9 +24,11 @@ Uses MMagic 1.2.0 (c749dcc7172d198ac2a27c3e5a4d2181640f0fd5), CUDA 11.7 and torc
 * Pull and run image (adjust volume mappings `-v`):
 
   ```bash
-  docker run \
+  docker run --rm \
+    -u $(id -u):$(id -g) -e USER=$USER \
     --gpus=all --shm-size 8G \
-    -v /local/dir:/container/dir \
+    -v `pwd`/cache:/.cache \
+    -v `pwd`:/workspace \
     -it public.aml-repo.cms.waikato.ac.nz:443/open-mmlab/mmagic:1.2.0_cuda11.7
   ```
 
@@ -29,8 +37,11 @@ Uses MMagic 1.2.0 (c749dcc7172d198ac2a27c3e5a4d2181640f0fd5), CUDA 11.7 and torc
 * Pull and run image (adjust volume mappings `-v`):
 
   ```bash
-  docker run --gpus=all --shm-size 8G \
-    -v /local/dir:/container/dir \
+  docker run --rm \
+    -u $(id -u):$(id -g) -e USER=$USER \
+    --gpus=all --shm-size 8G \
+    -v `pwd`/cache:/.cache \
+    -v `pwd`:/workspace \
     -it waikatodatamining/mmagic:1.2.0_cuda11.7
   ```
 
@@ -45,11 +56,13 @@ Uses MMagic 1.2.0 (c749dcc7172d198ac2a27c3e5a4d2181640f0fd5), CUDA 11.7 and torc
 * Run the container
 
   ```bash
-  docker run \
+  docker run --rm \
+    -u $(id -u):$(id -g) -e USER=$USER \
     --gpus=all --shm-size 8G \
-    -v /local/dir:/container/dir -it mmagic
+    -v `pwd`/cache:/.cache \
+    -v `pwd`:/workspace \
+    -it mmagic
   ```
-  `/local/dir:/container/dir` maps a local disk directory into a directory inside the container
 
 
 ## Publish images
