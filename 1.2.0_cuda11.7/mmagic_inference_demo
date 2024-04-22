@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /opt/mmagic
+python demo/mmagic_inference_demo.py "$@"

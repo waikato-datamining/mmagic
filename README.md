@@ -7,6 +7,10 @@ https://github.com/open-mmlab/mmagic
 
 Available versions:
 
+* 1.2.0
+
+  * [CUDA 11.7](1.2.0_cuda11.7)
+
 * 1.0.1
 
   * [CUDA 11.1](1.0.1_cuda11.1)
